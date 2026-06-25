@@ -1,134 +1,189 @@
 # AI Learning Site
 
-> 一个面向普通学习者的 AI 学习网站，帮助用户用更直观、更低门槛的方式理解人工智能、大模型和 AI 工具的使用方法。
+> 一个面向普通学习者的 AI 学习管理系统，用更直观、更低门槛的方式组织 AI 课程、视频、笔记、错题、任务和学习进度。
 
-AI Learning Site is a beginner-friendly learning website for understanding artificial intelligence, large language models, and practical AI workflows through clear explanations, interactive examples, and structured learning paths.
+AI Learning Site is a maintainable full-stack learning system for organizing AI courses, lessons, notes, quizzes, mistakes, tasks, attachments, and study progress.
 
 ## 项目定位
 
-这个项目希望解决一个问题：
+这个项目不是单纯的静态学习网站，而是一个 **Next.js + Prisma** 的全栈学习管理系统。
 
-> 很多人知道 AI 很重要，但不知道应该从哪里开始学，也不想一上来就陷入复杂算法、论文和工程细节。
+它希望解决的问题是：
 
-因此，`ai-learning-site` 的目标不是把用户训练成算法工程师，而是帮助普通人建立对 AI 的基本理解，并逐步学会把 AI 用到学习、工作和创作中。
+> 很多人知道 AI 很重要，但学习资料分散、视频进度难管理、笔记和错题无法沉淀，最终很难形成稳定的学习闭环。
 
-## 适合谁使用
+因此，`ai-learning-site` 的目标是把 AI 学习过程产品化：课程管理、视频学习、笔记沉淀、错题复盘、任务推进和数据统计都放在一个系统里。
 
-- 想了解 AI 但没有算法背景的人；
-- 想系统学习大模型、Prompt 和 AI 工具的新手；
-- 想把 AI 用到写作、办公、学习、编程或产品设计中的用户；
-- 想给学生、朋友或团队做 AI 入门科普的人；
-- 希望通过网页交互理解 AI 原理的人。
+## 当前能力
 
-## 计划内容
+- 课程、章节、课时管理；
+- 视频、附件和资料库管理；
+- 学习笔记和时间戳笔记；
+- 测验、答题记录和错题本；
+- 作业 / 项目任务追踪；
+- 学习时长统计；
+- 设置、备份和本地数据管理；
+- 响应式页面和基础无障碍体验；
+- 基础安全响应头和 request id；
+- 结构化架构文档，便于专业开发者接手。
 
-### 1. AI 入门
+## 技术栈
 
-- 什么是人工智能；
-- 什么是机器学习；
-- 什么是大模型；
-- ChatGPT 为什么看起来这么聪明；
-- AI 能做什么，不能做什么。
+- Framework: Next.js App Router
+- Language: TypeScript
+- UI: React Server Components / Client Components
+- Database: SQLite
+- ORM: Prisma
+- Styling: Global CSS
+- Tooling: ESLint, Prettier, TypeScript strict mode
 
-### 2. 大模型原理科普
-
-- Token 是什么；
-- Prompt 是什么；
-- 上下文窗口是什么；
-- Transformer 的核心直觉；
-- 为什么“看到全局”很重要；
-- 模型训练、微调和推理的区别。
-
-### 3. Prompt 学习
-
-- 如何提出清晰问题；
-- 如何让 AI 按步骤思考；
-- 如何设计角色、任务、背景和输出格式；
-- 常见 Prompt 模板；
-- Prompt 从一次性提问到可复用工作流。
-
-### 4. AI 工具实践
-
-- AI 辅助写作；
-- AI 辅助编程；
-- AI 辅助阅读；
-- AI 辅助做 PPT / 海报 / 网页；
-- AI 辅助产品原型设计；
-- AI 辅助个人知识管理。
-
-### 5. 交互式学习模块
-
-未来可以加入一些“玩中学”的交互组件：
-
-- Token 切分演示；
-- Prompt 改写对比；
-- 上下文记忆模拟；
-- 简化版注意力机制可视化；
-- AI 工作流搭建器；
-- 人类问题如何被转换成模型输入的过程演示。
-
-## 项目目标
-
-- 用普通人能理解的语言解释 AI；
-- 用可视化和交互降低学习门槛；
-- 把零散的 AI 知识整理成学习路径；
-- 帮助学习者从“会聊天”升级到“会设计 AI 工作流”；
-- 为后续 AI 教育产品或个人学习平台打基础。
-
-## 推荐页面结构
+## 项目结构
 
 ```text
-ai-learning-site/
-├── 首页：为什么要学习 AI
-├── AI 基础：从概念到直觉
-├── 大模型原理：不写公式也能理解
-├── Prompt 教程：从提问到工作流
-├── AI 工具箱：常见使用场景
-├── 交互实验室：用小游戏理解 AI
-└── 学习路线：不同人群如何开始
+.
+├── app/                 # 页面、布局、加载态、错误态和路由入口
+├── components/          # 可复用 UI 和表单组件
+├── lib/                 # Prisma、环境变量、格式化和服务端工具
+├── prisma/              # 数据模型和种子数据
+├── public/              # 静态资源
+├── uploads/             # 本地上传目录，不进入 Git
+├── docs/                # 架构、安全和维护文档
+├── .env.example         # 环境变量示例
+├── next.config.mjs      # Next.js 配置和安全响应头
+└── package.json         # 工程脚本
 ```
-
-## 技术栈设想
-
-当前仓库还处于起步阶段，后续可根据实际开发选择技术栈。
-
-推荐方向：
-
-- Frontend: Vue / React / Next.js
-- Styling: Tailwind CSS / UnoCSS
-- Content: Markdown / MDX
-- Visualization: SVG / Canvas / D3.js
-- Deployment: GitHub Pages / Vercel / Netlify
 
 ## 快速开始
 
-仓库目前还在初始化阶段。后续如果使用前端框架，可以参考以下流程：
+### 1. 安装依赖
 
 ```bash
-git clone https://github.com/libinpg/ai-learning-site.git
-cd ai-learning-site
-npm install
-npm run dev
+pnpm install
 ```
 
-如果项目使用纯静态页面，也可以直接通过浏览器打开入口 HTML 文件。
+### 2. 配置环境变量
 
-## 后续计划
+```bash
+cp .env.example .env
+```
 
-- [ ] 确定网站技术栈；
-- [ ] 设计首页信息架构；
-- [ ] 编写 AI 入门内容；
-- [ ] 制作 Token / Prompt / 上下文窗口交互演示；
-- [ ] 增加大模型原理科普模块；
-- [ ] 增加 AI 工具实践案例；
-- [ ] 部署到 GitHub Pages 或 Vercel；
-- [ ] 持续沉淀普通人 AI 学习路线。
+默认本地数据库：
+
+```env
+DATABASE_URL="file:./dev.db"
+```
+
+### 3. 初始化数据库
+
+```bash
+pnpm db:push
+pnpm db:seed
+```
+
+### 4. 启动开发服务
+
+```bash
+pnpm dev
+```
+
+访问：
+
+```text
+http://localhost:3000
+```
+
+## 常用命令
+
+```bash
+pnpm dev            # 启动开发环境
+pnpm build          # 生成 Prisma Client 并构建 Next.js
+pnpm start          # 启动生产服务
+pnpm lint           # 运行 lint
+pnpm typecheck      # TypeScript 类型检查
+pnpm check          # 类型检查 + lint
+pnpm format         # 格式化代码
+pnpm format:check   # 检查格式
+pnpm db:push        # 推送 Prisma schema 到数据库
+pnpm db:studio      # 打开 Prisma Studio
+pnpm db:seed        # 写入种子数据
+```
+
+## 架构原则
+
+### 前端
+
+前端负责展示和交互：
+
+- 页面结构；
+- 表单体验；
+- 加载态、错误态、空状态；
+- 响应式和无障碍；
+- 不直接处理数据库细节。
+
+### 后端
+
+后端负责数据和安全：
+
+- 输入校验；
+- Prisma 数据访问；
+- 文件上传和路径安全；
+- 导入、导出和备份；
+- 统计聚合；
+- 权限控制。
+
+在 Next.js 中，后端逻辑可以通过 Server Actions、Route Handlers 和 `lib/` 服务层组织。
+
+## 性能与体验优化
+
+项目已经补入以下基础优化方向：
+
+- Server Components 优先读取数据，减少客户端 JS；
+- 首页聚合数据使用并行查询；
+- 增加全局 loading 页面；
+- 增加全局 error boundary；
+- 增加 404 页面；
+- 增加跳到主内容的无障碍入口；
+- 响应式布局适配移动端；
+- CSS 动效支持 `prefers-reduced-motion`；
+- 导航链接开启预取；
+- request id 便于排查问题。
+
+## 安全设计
+
+已加入：
+
+- 关闭 `X-Powered-By`；
+- `X-Content-Type-Options: nosniff`；
+- `X-Frame-Options: DENY`；
+- `Referrer-Policy: strict-origin-when-cross-origin`；
+- `Permissions-Policy` 限制敏感浏览器能力；
+- `.env`、上传目录和本地数据库不进入 Git；
+- `.env.example` 明确记录必需环境变量。
+
+更多说明见：[docs/SECURITY.md](docs/SECURITY.md)
+
+## 给接手开发者看的文档
+
+- [Architecture Guide](docs/ARCHITECTURE.md)
+- [Security Guide](docs/SECURITY.md)
+- [Contributing Guide](CONTRIBUTING.md)
+
+## 后续路线
+
+- [ ] 为所有写操作补统一输入校验；
+- [ ] 抽离更多服务层函数，减少页面组件中的业务逻辑；
+- [ ] 为文件上传加入类型、大小和路径限制；
+- [ ] 增加用户、角色和权限模型；
+- [ ] 增加分页和搜索性能优化；
+- [ ] 增加测试；
+- [ ] 完成生产部署说明；
+- [ ] 在完成样式抽离后加入严格 CSP。
 
 ## 项目理念
 
 AI 学习不应该只属于算法工程师。
 
-这个项目希望用更轻、更直观、更接近真实生活的方式，让更多人理解 AI，并把 AI 变成自己的学习工具、表达工具和创造工具。
+这个项目希望把 AI 学习变成一个可以持续推进、复盘和沉淀的系统。即使 AI 不可用，专业程序员也应该能通过清晰的架构、脚本、类型和文档继续维护它。
 
 ## License
 
