@@ -2,12 +2,21 @@
   "name": "ai-learning-site",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@latest",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm typecheck && pnpm lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "db:push": "prisma db push",
+    "db:studio": "prisma studio",
     "db:seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
@@ -23,6 +32,7 @@
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.17.0",
     "eslint-config-next": "^15.1.0",
+    "prettier": "^3.4.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
   }
