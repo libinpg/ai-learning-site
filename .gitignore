@@ -1,7 +1,36 @@
-.next
+# dependencies
 node_modules
+.pnp
+.pnp.js
+
+# next.js
+.next
+out
+.vercel
+
+# production
+build
+dist
+
+# local env
+.env
+.env.*
+!.env.example
+
+# uploads and generated data
 uploads
 prisma/dev.db
 prisma/dev.db-journal
-.env
+
+# logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# system / editor
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json
